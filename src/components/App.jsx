@@ -4,11 +4,6 @@ import { ContactList } from './ContactList';
 import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
 
-const INITIAL_STATE = {
-  contacts: [],
-  name: '',
-  number: '',
-};
 export class App extends Component {
   // state = {
   //   contacts: [],
@@ -30,25 +25,14 @@ export class App extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { name, number, contacts } = this.state;
-    // let flag = false;
-
-    // contacts.map(contact => {
-    //   if (contact.name.includes(name)) {
-    //     alert(`${name} is already in contacts`);
-    //     flag = true;
-    //   }
-    // });
-    // if (flag === false)
     const alreadyInContacts = contacts.find(contact => contact.name === name);
-    console.log(alreadyInContacts);
+
     alreadyInContacts
       ? alert(`${name} is already in contacts`)
       : this.setState(prevState => ({
           contacts: [...prevState.contacts, { id: nanoid(), name, number }],
           name: '',
         }));
-
-    console.log(this.state);
   };
 
   handleChange = e => {
