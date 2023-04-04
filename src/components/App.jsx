@@ -7,6 +7,7 @@ import { Filter } from './Filter';
 export class App extends Component {
   // state = {
   //   contacts: [],
+  //   filter: '',
   //   name: '',
   //   number: '',
   // };
@@ -38,6 +39,17 @@ export class App extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  handleDelete = e => {
+    const { contacts } = this.state;
+
+    this.setState(
+      contacts.splice(
+        contacts.findIndex(contact => contact.id === e.target.id),
+        1
+      )
+    );
+  };
   render() {
     return (
       <div>
@@ -53,6 +65,7 @@ export class App extends Component {
         <ContactList
           contacts={this.state.contacts}
           filter={this.state.filter}
+          handleDelete={this.handleDelete}
         />
       </div>
     );
