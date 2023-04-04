@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import PropTypes, { objectOf, string } from 'prop-types';
 export class ContactList extends Component {
   render() {
     const { contacts, filter, handleDelete } = this.props;
@@ -19,3 +19,7 @@ export class ContactList extends Component {
     );
   }
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(objectOf(string)).isRequired,
+};

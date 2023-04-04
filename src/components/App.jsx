@@ -5,12 +5,6 @@ import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
 
 export class App extends Component {
-  // state = {
-  //   contacts: [],
-  //   filter: '',
-  //   name: '',
-  //   number: '',
-  // };
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
