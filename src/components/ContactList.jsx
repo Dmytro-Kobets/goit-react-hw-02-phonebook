@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { DeleteButton } from './App.styled';
 import PropTypes, { objectOf, string } from 'prop-types';
 export class ContactList extends Component {
   render() {
@@ -9,9 +10,9 @@ export class ContactList extends Component {
           return !filter === '' || contact.name.includes(filter) ? (
             <li key={contact.id}>
               {contact.name}: {contact.number}
-              <button onClick={handleDelete} id={contact.id}>
+              <DeleteButton onClick={handleDelete} id={contact.id}>
                 Delete
-              </button>
+              </DeleteButton>
             </li>
           ) : null;
         })}

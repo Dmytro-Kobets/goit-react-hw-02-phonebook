@@ -1,13 +1,14 @@
 import { Component } from 'react';
+import { Input, Form, Button } from './App.styled';
 import PropTypes from 'prop-types';
 
 export class ContactForm extends Component {
   render() {
     const { name, number, handleChange, handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input
+        <Input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -17,7 +18,7 @@ export class ContactForm extends Component {
           value={name}
         />
         <label>Phone</label>
-        <input
+        <Input
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -26,8 +27,8 @@ export class ContactForm extends Component {
           onChange={handleChange}
           value={number}
         />
-        <button type="submit">Add Contact</button>
-      </form>
+        <Button type="submit">Add Contact</Button>
+      </Form>
     );
   }
 }
